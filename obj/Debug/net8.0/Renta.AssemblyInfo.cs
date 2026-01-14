@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Renta")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6c07f9c03d89da1a6ca7b792d59c1d550ff79b29")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8019f4b0b38610ca915c729136070001e301139e")]
 [assembly: System.Reflection.AssemblyProductAttribute("Renta")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Renta")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

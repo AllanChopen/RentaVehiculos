@@ -1,0 +1,13 @@
+bin/
+obj/
+.vs/
+.vscode/
+.idea/
+*.log
+run*.log
+*.user
+*.suo
+.DS_Store
+.git
+.gitignore
+Renta.http
