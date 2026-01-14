@@ -1,0 +1,6 @@
+@Renta_HostAddress = http://localhost:5063
+
+GET {{Renta_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,67 @@
+nohup: ignoring input
+Building...
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://localhost:5063
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /home/allan/Documents/dotnet/prueba/Renta
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (96ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT v.id_vehiculo, v.modelo, v.placa, v.precio_por_dia, v.estado
+      FROM vehiculos AS v
+      WHERE v.id_vehiculo = @__p_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (61ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT c.id_cliente, c.email, c.nombre, c.telefono
+      FROM clientes AS c
+      WHERE c.id_cliente = @__p_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (70ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType = Decimal), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO alquileres (id_cliente, fecha_fin, fecha_inicio, total, id_vehiculo)
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING id_alquiler;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (65ms) [Parameters=[@__alquiler_Id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT a.id_alquiler AS "Id", a.id_cliente AS "ClienteId", c.nombre AS "ClienteNombre", a.id_vehiculo AS "VehiculoId", v.modelo AS "VehiculoModelo", a.fecha_inicio AS "FechaInicio", a.fecha_fin AS "FechaFin", a.total AS "Total"
+      FROM alquileres AS a
+      INNER JOIN clientes AS c ON a.id_cliente = c.id_cliente
+      INNER JOIN vehiculos AS v ON a.id_vehiculo = v.id_vehiculo
+      WHERE a.id_alquiler = @__alquiler_Id_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (61ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT a.id_alquiler AS "Id", a.id_cliente AS "ClienteId", c.nombre AS "ClienteNombre", a.id_vehiculo AS "VehiculoId", v.modelo AS "VehiculoModelo", a.fecha_inicio AS "FechaInicio", a.fecha_fin AS "FechaFin", a.total AS "Total"
+      FROM alquileres AS a
+      INNER JOIN clientes AS c ON a.id_cliente = c.id_cliente
+      INNER JOIN vehiculos AS v ON a.id_vehiculo = v.id_vehiculo
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (60ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT a.id_alquiler, a.id_cliente, a.fecha_fin, a.fecha_inicio, a.total, a.id_vehiculo
+      FROM alquileres AS a
+      WHERE a.id_alquiler = @__p_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (67ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      DELETE FROM alquileres
+      WHERE id_alquiler = @p0;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (71ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT a.id_alquiler AS "Id", a.id_cliente AS "ClienteId", c.nombre AS "ClienteNombre", a.id_vehiculo AS "VehiculoId", v.modelo AS "VehiculoModelo", a.fecha_inicio AS "FechaInicio", a.fecha_fin AS "FechaFin", a.total AS "Total"
+      FROM alquileres AS a
+      INNER JOIN clientes AS c ON a.id_cliente = c.id_cliente
+      INNER JOIN vehiculos AS v ON a.id_vehiculo = v.id_vehiculo
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (92ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime), @p3='?', @p4='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO pagos (id_pago, id_alquiler, fecha_pago, metodo_pago, monto)
+      VALUES (@p0, @p1, @p2, @p3, @p4);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (87ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT p.id_pago, p.id_alquiler, p.fecha_pago, p.metodo_pago, p.monto
+      FROM pagos AS p
